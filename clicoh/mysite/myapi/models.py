@@ -10,13 +10,10 @@ class Product(models.Model):
 
 class Order(models.Model):
     id = models.CharField(primary_key=True, max_length=50)
-    date_time = models.DateTimeField()
-
-    #class Meta:
-    #    ordering = ['created']
+    date_time = models.DateTimeField(auto_now_add=True)
 
 class OrderDetail(models.Model):
     order = models.ForeignKey(Order, on_delete=models.CASCADE)
     cuantity = models.IntegerField()
     price = models.FloatField()
-    product = models.ForeignKey(Product, on_delete=models.CASCADE)
+    product = models.ManyToManyField(Product)

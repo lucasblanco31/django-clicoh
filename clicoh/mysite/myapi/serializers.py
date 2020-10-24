@@ -1,18 +1,17 @@
 from rest_framework import serializers
 from .models import Product, Order, OrderDetail
 
-class ProductSerializer(serializers.HyperlinkedModelSerializer):
+class ProductSerializer(serializers.ModelSerializer):
     class Meta:
         model = Product
-        fields = ('id', 'name', 'price')
+        fields = '__all__'
 
-
-class OrderSerializer(serializers.HyperlinkedModelSerializer):
+class OrderSerializer(serializers.ModelSerializer):
     class Meta:
         model = Order
-        fields = ('id', 'date_time')
+        fields = '__all__'
 
-class OrderDetailSerializer(serializers.HyperlinkedModelSerializer):
+class OrderDetailSerializer(serializers.ModelSerializer):
     class Meta:
         model = OrderDetail
-        fields = ('order', 'cuantity', 'price', 'product')
+        fields = '__all__'
