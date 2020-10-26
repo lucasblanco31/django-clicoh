@@ -52,6 +52,8 @@ class OrderDetailViewSet(viewsets.ModelViewSet):
 
     serializer_class = OrderDetailSerializer
     queryset = OrderDetail.objects.all()
+    #authentication_classes = [TokenAuthentication]
+    #permission_classes = [IsAuthenticated]
 
     def list(self, request):
         orders = OrderDetail.objects.all()
@@ -90,6 +92,8 @@ class OrderViewSet(viewsets.ModelViewSet):
 
     serializer_class = OrderSerializer
     queryset = Order.objects.all()
+    #authentication_classes = [TokenAuthentication]
+    #permission_classes = [IsAuthenticated]
 
     def list(self, request):
         order = Order.objects.all()
